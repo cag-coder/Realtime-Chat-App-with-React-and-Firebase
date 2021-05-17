@@ -1,12 +1,17 @@
 import React,{useState} from 'react'
-import Message from '../components/Message'
+import Username from '../components/Username'
+import Message from "../components/Message"
 import "./Messages.css"
 
 
-function Messages() {
+function Messages(props) {
 
     const [input, setInput] = useState("")
+
     const [messages, setMessages] = useState(["ABC","ADC"])
+
+    const [username, setUsername] = useState("")
+
 
     const onChangeHandler = (e) =>{
         setInput(e.target.value)
@@ -20,12 +25,17 @@ function Messages() {
         
     }
 
+    const onNameHandler = (name) =>{
+        setUsername(name)
+    }
+
     const msj =messages.map(message =>
        <Message message={message}/>
     )
     
     return (
         <div className="messages">
+            <h1>Welcome {username}</h1>
             <div>
                 {msj}
             </div>
@@ -33,6 +43,7 @@ function Messages() {
                 <input type="text" placeholder="Enter your message" value={input} onChange={onChangeHandler} />
                 <button type="submit" disabled={!input} onClick={onClickHandler}>Send Message</button>
             </form>
+            <Username username={onNameHandler}/>
         </div>
     )
 }
