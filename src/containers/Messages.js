@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Message from '../components/Message'
-
+import "./Messages.css"
 
 
 function Messages() {
@@ -25,13 +25,13 @@ function Messages() {
     )
     
     return (
-        <div>
+        <div className="messages">
             <div>
                 {msj}
             </div>
-            <form >
-                <input type="text" value={input} onChange={onChangeHandler} />
-                <button type="submit" onClick={onClickHandler}>Send Message</button>
+            <form className="messages__form">
+                <input type="text" placeholder="Enter your message" value={input} onChange={onChangeHandler} />
+                <button type="submit" disabled={!input} onClick={onClickHandler}>Send Message</button>
             </form>
         </div>
     )
