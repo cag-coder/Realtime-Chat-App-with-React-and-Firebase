@@ -10,12 +10,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: all 1s ease-in;
+    
 }
 
 .username__inputs{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s ease-in;
 }
 
 .username__inputs input{
@@ -25,7 +28,8 @@
     border:none;
     margin-left: 3rem;
     outline: none;
-
+    padding-left: 1rem;
+    transition: all 1s ease-in;
 }
 
 .username__inputs button{
@@ -37,6 +41,7 @@
     background-color: rgb(236, 154, 96);
     color: #fff;
     margin-left: 1rem;
+    transition: all 1s ease-in;
 }
 
 .username__inputs button:hover{

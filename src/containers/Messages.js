@@ -8,7 +8,7 @@ function Messages(props) {
 
     const [input, setInput] = useState("")
 
-    const [messages, setMessages] = useState(["ABC","ADC"])
+    const [messages, setMessages] = useState([{username : "cagatay", message : "Hello bro"},{username : "alper", message : "Hi bro"}])
 
     const [username, setUsername] = useState("")
 
@@ -19,23 +19,24 @@ function Messages(props) {
 
     const onClickHandler = (e) =>{
         e.preventDefault()
-        setMessages([...messages,input])
+        setMessages([...messages,{username:username, message:input}])
+               
         setInput("")
-       console.log(input)
         
     }
 
     const onNameHandler = (name) =>{
         setUsername(name)
+        
     }
 
-    const msj =messages.map(message =>
-       <Message message={message}/>
+    const msj =messages.map(message => 
+        <Message username={message.username} message={message.message}/>
     )
     
     return (
         <div className="messages">
-            <h1>Welcome {username}</h1>
+            <h1>Welcome {username.length > 0 ? username : "Anonymous"}</h1>
             <div>
                 {msj}
             </div>

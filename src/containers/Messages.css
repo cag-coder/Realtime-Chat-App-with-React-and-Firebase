@@ -1,7 +1,14 @@
-
+.messages{
+    
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    margin-bottom: 10rem;
+}
 
 
 .messages__form{
+    border-top: 2px #8d8181 solid;
     position: fixed;
     bottom: 0rem;
     display: flex;

@@ -6,7 +6,6 @@ import Username from "./components/Username";
 function App() {
   return (
     <div className="App">
-      <Username/>
       <Messages/> 
     </div>
   );

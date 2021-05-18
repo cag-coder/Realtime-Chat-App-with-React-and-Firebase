@@ -1,9 +1,9 @@
 import React from 'react'
-
-function Message({message}) {
+import "./Message.css"
+function Message({username,message}) {
     return (
-        <div>
-            {message}
+        <div className="message">
+            {username} : {message}
         </div>
     )
 }
