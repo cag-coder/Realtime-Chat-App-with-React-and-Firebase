@@ -3,7 +3,7 @@ import Username from '../components/Username'
 import Message from "../components/Message"
 import "./Messages.css"
 import db from '../Firebase/Firebase'
-
+import firebase from "firebase"
 
 function Messages(props) {
 
@@ -14,7 +14,9 @@ function Messages(props) {
     const [username, setUsername] = useState("")
 
     useEffect( () =>{
-        db.collection("messages").onSnapshot(snapshot => {
+        db.collection("messages")
+        .orderBy("timestamp","asc")
+        .onSnapshot(snapshot => {
             setMessages(snapshot.docs.map(doc => doc.data()))
         })
     },[])
@@ -25,7 +27,12 @@ function Messages(props) {
 
     const onClickHandler = (e) =>{
         e.preventDefault()
-        setMessages([...messages,{username:username, message:input}])
+
+        db.collection("messages").add({
+            message: input,
+            username:username,
+            timestamp:firebase.firestore.FieldValue.serverTimestamp()
+        })
                
         setInput("")
         
