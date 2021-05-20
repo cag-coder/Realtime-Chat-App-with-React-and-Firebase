@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Messages from '../containers/Messages'
-
 import "./Username.css"
 
 function Username(props) {

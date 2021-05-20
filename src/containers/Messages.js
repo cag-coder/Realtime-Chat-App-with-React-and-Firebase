@@ -1,17 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import Username from '../components/Username'
 import Message from "../components/Message"
 import "./Messages.css"
+import db from '../Firebase/Firebase'
 
 
 function Messages(props) {
 
     const [input, setInput] = useState("")
 
-    const [messages, setMessages] = useState([{username : "cagatay", message : "Hello bro"},{username : "alper", message : "Hi bro"}])
+    const [messages, setMessages] = useState([])
 
     const [username, setUsername] = useState("")
 
+    useEffect( () =>{
+        db.collection("messages").onSnapshot(snapshot => {
+            setMessages(snapshot.docs.map(doc => doc.data()))
+        })
+    },[])
 
     const onChangeHandler = (e) =>{
         setInput(e.target.value)
@@ -31,7 +37,7 @@ function Messages(props) {
     }
 
     const msj =messages.map(message => 
-        <Message username={message.username} message={message.message}/>
+        <Message username={message.username} message={message.message} enteredName={username}/>
     )
     
     return (
