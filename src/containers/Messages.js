@@ -4,6 +4,7 @@ import Message from "../components/Message"
 import "./Messages.css"
 import db from '../Firebase/Firebase'
 import firebase from "firebase"
+import FlipMove from 'react-flip-move';
 
 function Messages(props) {
 
@@ -17,7 +18,7 @@ function Messages(props) {
         db.collection("messages")
         .orderBy("timestamp","asc")
         .onSnapshot(snapshot => {
-            setMessages(snapshot.docs.map(doc => doc.data()))
+            setMessages(snapshot.docs.map(doc => ({ id: doc.id, message: doc.data()})))
         })
     },[])
 
@@ -43,16 +44,20 @@ function Messages(props) {
         
     }
 
-    const msj =messages.map(message => 
-        <Message username={message.username} message={message.message} enteredName={username}/>
-    )
+    
+
+   
     
     return (
         <div className="messages">
             <h1>Welcome {username.length > 0 ? username : "Anonymous"}</h1>
-            <div>
-                {msj}
-            </div>
+            <FlipMove>
+                {
+                messages.map(({id, message}) => 
+                <Message key={id} username={message.username} message={message.message} enteredName={username}/>
+                )}
+
+            </FlipMove>
             <form className="messages__form">
                 <input type="text" placeholder="Enter your message" value={input} onChange={onChangeHandler} />
                 <button type="submit" disabled={!input} onClick={onClickHandler}>Send Message</button>

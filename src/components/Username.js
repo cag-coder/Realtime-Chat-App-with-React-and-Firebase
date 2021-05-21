@@ -9,8 +9,8 @@ function Username(props) {
         setInput(e.target.value)
     }
 
-    const onButtonHandler = () =>{
-        
+    const onButtonHandler = (e) =>{
+        e.preventDefault()
         props.username(input)
         setDisplay(false)
     }
@@ -20,11 +20,10 @@ function Username(props) {
     return (
         <div  className="username" style={{transform: display ? "translate(-50%,-50%)" : "translate(-50%,-100vh)"}}>
             <h1 >Enter your name</h1>
-            <div className="username__inputs">
+            <form className="username__inputs">
                 <input type="text" value={input} onChange={onNameHandler} />
-                <button onClick={onButtonHandler}>Let's Go</button >
-            </div>
-            
+                <button type="submit" onClick={onButtonHandler}>Let's Go</button >
+            </form>
         </div>
     )
 }

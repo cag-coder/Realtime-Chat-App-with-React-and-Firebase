@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import "./Message.css"
-function Message({username,message,enteredName}) {
+
+
+
+const Message = forwardRef (({username,message,enteredName},ref) => {
 
     return (
         
-        <div className="message" style={{backgroundColor: username === enteredName && "#d4c3c3",
+        <div ref={ref} className="message" style={{backgroundColor: username === enteredName && "#d4c3c3",
         textAlign: username === enteredName && "right"}}>
             {username} : {message}
         </div>
     )
-}
+})
 
 export default Message
