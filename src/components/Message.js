@@ -8,7 +8,7 @@ const Message = forwardRef (({username,message,enteredName},ref) => {
     return (
         
         <div ref={ref} className={`message ${username === enteredName && "message__user"} `}>
-            {username} : {message}
+            {username || "Anonymous"}: {message}
         </div>
     )
 })
