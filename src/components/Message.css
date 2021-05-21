@@ -1,14 +1,19 @@
 
-
-
 .message{
     padding: 2rem;
     background-color: #e9e9eb;
     margin: 1rem;
     font-size: 1.3rem;
-    border-radius: 33px;
+    border-radius: 1rem;
     box-shadow: 5px 2px 15px -5px #000000;
     text-align: left;
+    width: fit-content;
+}
+
+.message__user{
+    margin-left: auto;
+    background-color: #d4c3c3;
+    text-align: right !important;
 }
 
 

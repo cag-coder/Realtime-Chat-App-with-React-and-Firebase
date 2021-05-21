@@ -50,7 +50,7 @@ function Messages(props) {
     
     return (
         <div className="messages">
-            <h1>Welcome {username.length > 0 ? username : "Anonymous"}</h1>
+            <h1 style={{margin: "3rem",}}>Welcome {username.length > 0 ? username : "Anonymous"}</h1>
             <FlipMove>
                 {
                 messages.map(({id, message}) => 

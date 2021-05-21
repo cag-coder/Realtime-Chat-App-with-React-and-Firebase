@@ -7,8 +7,7 @@ const Message = forwardRef (({username,message,enteredName},ref) => {
 
     return (
         
-        <div ref={ref} className="message" style={{backgroundColor: username === enteredName && "#d4c3c3",
-        textAlign: username === enteredName && "right"}}>
+        <div ref={ref} className={`message ${username === enteredName && "message__user"} `}>
             {username} : {message}
         </div>
     )
