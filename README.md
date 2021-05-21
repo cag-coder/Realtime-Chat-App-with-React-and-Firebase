@@ -1,6 +1,6 @@
 # --------------------- Here is the link to access to application:
 
-                          https://realtime-chat-670b4.web.app/
+https://realtime-chat-670b4.web.app/
 
 
 # Getting Started with Create React App
