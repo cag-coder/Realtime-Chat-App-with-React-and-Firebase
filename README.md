@@ -1,4 +1,4 @@
-# --------------------- Here is the link to access to application:
+# ----------- Here is the link to access to application:
 
 https://realtime-chat-670b4.web.app/
 
